@@ -1,12 +1,12 @@
-import { Request, Response } from 'express'
+import { Request, Response } from "express";
 
 const users = [
   {
-    name: 'Renan',
-    email: 'eu@renanandrade.com.br',
+    name: "Renan",
+    email: "eu@renanandrade.com.br",
   },
-]
+];
 
-const index = (req: Request, res: Response) => res.json(users)
+const index = (req: Request, res: Response) => res.json(users);
 
-export default { index }
+export default { index };
