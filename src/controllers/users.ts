@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 
+import Model from "@models/User";
+
 const users = [
   {
     name: "Renan",
