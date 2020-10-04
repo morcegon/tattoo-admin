@@ -4,11 +4,14 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 
-@Entity()
+import Job from "./Job";
+
+@Entity({ name: "artists" })
 class Artist extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -27,6 +30,9 @@ class Artist extends BaseEntity {
 
   @DeleteDateColumn()
   deletedAt: Date;
+
+  @OneToMany(() => Job, (job) => job.artist)
+  jobs: Job[];
 }
 
 export default Artist;
