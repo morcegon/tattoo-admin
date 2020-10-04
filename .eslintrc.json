@@ -71,7 +71,12 @@
       }
     ],
     "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": ["**/*.test.ts", "**/*.spec.ts", "./src/tests/**/*.ts"]
+      "devDependencies": [
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "./src/tests/**/*.ts",
+        "./src/database/factory/**/*.ts"
+      ]
     }],
     "max-classes-per-file": "off",
     "no-console": "off",

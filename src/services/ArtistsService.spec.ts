@@ -1,5 +1,6 @@
 import { name, random } from "faker";
 
+import ArtistFactory from "@database/factory/ArtistFactory";
 import connection from "@database/index";
 import Artist from "@models/Artist";
 import ArtistService from "@services/ArtistService";
@@ -37,7 +38,7 @@ describe("artist service", () => {
   it("should update a store user", async () => {
     expect.hasAssertions();
 
-    const artist = await ArtistService.store(userData);
+    const [artist] = await ArtistFactory.produce();
 
     const updatedData: ArtistUpdate = {
       name: name.findName(),
