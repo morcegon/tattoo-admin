@@ -11,4 +11,15 @@ const store = async (data: JobInsert): Promise<Job> => {
   return job.save();
 };
 
-export default { store };
+const update = async (jobId: string, data: JobUpdate): Promise<Job> => {
+  const job = await Job.findOneOrFail(jobId);
+
+  job.customer = data.customer;
+  job.date = data.date;
+  job.value = data.value;
+  job.payment = data.payment;
+
+  return job.save();
+};
+
+export default { store, update };
