@@ -7,11 +7,15 @@
     "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify ./src/server.ts",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node dist/server.js",
-    "test": "jest",
+    "test": "jest --watch --runInBand --detectOpenHandles",
     "lint": "eslint --ext .ts --fix ./src"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.28",
+    "typeorm-naming-strategies": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -20,6 +24,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
     "@types/express": "^4.17.8",
+    "@types/faker": "^5.1.2",
     "@types/jest": "^26.0.13",
     "@types/prettier": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
@@ -33,6 +38,7 @@
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-jest": "^24.0.2",
     "eslint-plugin-prettier": "^3.1.4",
+    "faker": "^5.1.0",
     "jest": "^26.4.2",
     "prettier": "^2.1.2",
     "ts-jest": "^26.3.0",
