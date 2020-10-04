@@ -1,3 +1,5 @@
+type Artist = import("@models/Artist");
+
 type ArtistType = "tattoo" | "piercer";
 
 type ArtistInsert = {
@@ -5,8 +7,6 @@ type ArtistInsert = {
   type: ArtistType;
 };
 
-type Artist = ArtistInsert & {
-  id: string;
-};
+type ArtistInsert = Required<Pick<Artist, "name" | "type">>;
 
 type ArtistUpdate = Partial<ArtistInsert>;
