@@ -1,16 +1,15 @@
-import ArtistModel from "@models/Artist";
-
-const Artist = new ArtistModel();
+import Artist from "@models/Artist";
 
 const store = async (data: ArtistInsert): Promise<Artist> => {
-  Artist.name = data.name;
-  Artist.type = data.type;
+  const artist = new Artist();
+  artist.name = data.name;
+  artist.type = data.type;
 
-  return Artist.save();
+  return artist.save();
 };
 
 const update = async (userId: string, data: ArtistUpdate): Promise<Artist> => {
-  const artist = await ArtistModel.findOne(userId);
+  const artist = await Artist.findOne(userId);
 
   if (!artist) {
     throw new Error("There's no artist with this ID");
@@ -22,4 +21,10 @@ const update = async (userId: string, data: ArtistUpdate): Promise<Artist> => {
   return artist.save();
 };
 
-export default { store, update };
+const destroy = async (userId: string): Promise<Artist> => {
+  const artist = await Artist.findOneOrFail(userId);
+
+  return artist.softRemove();
+};
+
+export default { store, update, destroy };
