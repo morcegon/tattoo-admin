@@ -22,4 +22,10 @@ const update = async (jobId: string, data: JobUpdate): Promise<Job> => {
   return job.save();
 };
 
-export default { store, update };
+const destroy = async (jobId: string): Promise<Job> => {
+  const job = await Job.findOneOrFail(jobId);
+
+  return job.softRemove();
+};
+
+export default { store, update, destroy };

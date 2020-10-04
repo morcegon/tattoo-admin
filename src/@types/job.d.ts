@@ -11,6 +11,4 @@ type PaymentType =
 
 type JobInsert = Required<Pick<Job, "date" | "customer" | "value" | "payment">>;
 
-type JobUpdate = Partial<JobInsert> & {
-  artist: Artist;
-};
+type JobUpdate = Partial<JobInsert>;

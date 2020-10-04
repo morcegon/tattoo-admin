@@ -52,10 +52,8 @@ describe("Job Service", () => {
     expect.hasAssertions();
 
     const [job] = await JobFactory.produce();
-    const [artist] = await ArtistFactory.produce();
 
     const updateData = {
-      artist,
       customer: name.findName(),
       date: date.recent(),
       payment: randomType(),
@@ -68,5 +66,15 @@ describe("Job Service", () => {
     expect(stored.customer).toBe(updateData.customer);
   });
 
-  test.todo("should destroy a stored job");
+  it("should destroy a stored job", async () => {
+    expect.hasAssertions();
+
+    const [job] = await JobFactory.produce();
+
+    await JobService.destroy(job.id);
+
+    const [, count] = await Job.findAndCount({ where: { id: job.id } });
+
+    expect(count).toBe(0);
+  });
 });
