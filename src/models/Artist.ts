@@ -28,7 +28,7 @@ class Artist extends BaseEntity {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @DeleteDateColumn()
+  @DeleteDateColumn({ select: false })
   deletedAt: Date;
 
   @OneToMany(() => Job, (job) => job.artist)

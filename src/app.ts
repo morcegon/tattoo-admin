@@ -1,8 +1,9 @@
 import "reflect-metadata";
 import express from "express";
 
+import routes from "@routes/index";
+
 import connection from "./database";
-import routes from "./routes";
 
 connection.create();
 

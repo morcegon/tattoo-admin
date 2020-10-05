@@ -24,6 +24,7 @@
       "@controllers/*": ["./src/controllers/*"],
       "@database/*": ["./src/database/*"],
       "@models/*": ["./src/models/*"],
+      "@routes/*": ["./src/routes/*"],
       "@services/*": ["./src/services/*"],
       "@tests/*": ["./src/tests/*"]
     }
