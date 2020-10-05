@@ -6,9 +6,7 @@ import ArtistService from "@services/ArtistService";
 const index = async (
   req: Request,
   resp: Response
-): Promise<Response<Artist[]>> => {
-  return resp.json(await Artist.find());
-};
+): Promise<Response<Artist[]>> => resp.json(await Artist.find());
 
 const store = async (
   req: Request,
