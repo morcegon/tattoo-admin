@@ -1,5 +1,5 @@
-type Job = import("@models/Job");
-type Artist = import("@models/Artist");
+type Job = import("@models/Job").default;
+type Artist = import("@models/Artist").default;
 
 type PaymentType =
   | "money"
@@ -12,5 +12,3 @@ type PaymentType =
 type JobInsert = Required<
   Pick<Job, "date" | "customer" | "value" | "payment">
 > & { artistId: string };
-
-type JobUpdate = Partial<JobInsert>;

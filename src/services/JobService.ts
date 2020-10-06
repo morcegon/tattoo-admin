@@ -14,7 +14,7 @@ const store = async (data: JobInsert): Promise<Job> => {
   return job.save();
 };
 
-const update = async (jobId: string, data: JobUpdate): Promise<Job> => {
+const update = async (jobId: string, data: JobInsert): Promise<Job> => {
   const job = await Job.findOneOrFail(jobId);
 
   job.customer = data.customer;
