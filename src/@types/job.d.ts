@@ -9,6 +9,8 @@ type PaymentType =
   | "credit"
   | "credit installment";
 
-type JobInsert = Required<Pick<Job, "date" | "customer" | "value" | "payment">>;
+type JobInsert = Required<
+  Pick<Job, "date" | "customer" | "value" | "payment">
+> & { artistId: string };
 
 type JobUpdate = Partial<JobInsert>;

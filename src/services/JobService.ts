@@ -1,12 +1,15 @@
+import Artist from "@models/Artist";
 import Job from "@models/Job";
 
 const store = async (data: JobInsert): Promise<Job> => {
   const job = new Job();
+  const artist = await Artist.findOneOrFail(data.artistId);
 
   job.customer = data.customer;
   job.date = data.date;
   job.value = data.value;
   job.payment = data.payment;
+  job.artist = artist;
 
   return job.save();
 };

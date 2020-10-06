@@ -30,4 +30,31 @@ const store = async (req: Request, resp: Response): Promise<Response> => {
   }
 };
 
-export default { index, show, store };
+const update = async (req: Request, resp: Response): Promise<Response> => {
+  try {
+    const job = await JobService.update(req.params.id, req.body);
+    return resp.json(job);
+  } catch (e) {
+    return resp.status(400).json({
+      error: true,
+      message: e.message,
+    });
+  }
+};
+
+const destroy = async (req: Request, resp: Response): Promise<Response> => {
+  try {
+    await JobService.destroy(req.params.id);
+    return resp.json({
+      success: true,
+      message: "Job successfully deleted",
+    });
+  } catch (e) {
+    return resp.status(400).json({
+      error: true,
+      message: e.message,
+    });
+  }
+};
+
+export default { index, destroy, show, store, update };

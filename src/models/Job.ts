@@ -22,7 +22,7 @@ class Job extends BaseEntity {
   @Column({ type: "enum", enum: ["tattoo", "piercing"] })
   type: "tattoo" | "piercing";
 
-  @Column({ type: "timestamp" })
+  @Column({ type: "date" })
   date: Date;
 
   @Column({ length: 150 })

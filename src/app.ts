@@ -5,7 +5,7 @@ import routes from "@routes/index";
 
 import connection from "./database";
 
-connection.create();
+connection.create().catch((err) => console.warn(err));
 
 const app = express();
 
